@@ -23,7 +23,7 @@ under Apache-2.0 in `src/tabicl/forecast`.)
 | | |
 |---|---|
 | **Consumption** | Self-hosted weights (Hugging Face) — runs locally, single forward pass |
-| **Compute on Databricks** | **GPU cluster**, either with AI runtime or all purpose GPU cluster |
+| **Compute on Databricks** | **GPU recommended**, specially with Databricks AI Runtime for instant GPU access; CPU works but is slow |
 | **Auth** | None; downloads checkpoint from Hugging Face on first use |
 | **Tasks covered** | Classification and Regression (see below re: forecast/shap extras) |
 | **License** | **BSD 3-Clause** (code + weights) — commercial use OK |
