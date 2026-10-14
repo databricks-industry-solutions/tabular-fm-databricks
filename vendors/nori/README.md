@@ -19,7 +19,7 @@ its own `NOTICE` and third-party attribution files.
 | | |
 |---|---|
 | **Consumption** | Self-hosted weights (Hugging Face), running locally in a single forward pass |
-| **Compute on Databricks** | **GPU cluster recommended**; CPU is supported for smaller tables |
+| **Compute on Databricks** | **GPU recommended**, specially with Databricks AI Runtime for instant GPU access; CPU works but is slow |
 | **Auth** | None; the public checkpoint downloads on first prediction |
 | **Tasks covered** | **Regression** with point estimates and prediction intervals |
 | **License** | **Apache License 2.0** (code and weights), commercial use permitted |

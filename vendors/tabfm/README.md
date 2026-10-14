@@ -24,7 +24,7 @@ vendors and must be surfaced to any customer evaluating it. See the full license
 | | |
 |---|---|
 | **Consumption** | Self-hosted weights (Hugging Face) — runs locally, single forward pass |
-| **Compute on Databricks** | **GPU cluster recommended** (CPU works but is slow). Inline in the notebook (v1). |
+| **Compute on Databricks** | **GPU recommended**, specially with Databricks AI Runtime for instant GPU access; CPU works but is slow |
 | **Auth** | None for open weights; standard Hugging Face access to download the model |
 | **Tasks covered** | **Classification and Regression only** — no outlier detection or forecasting |
 | **License** | Weights: **TabFM Non-Commercial License v1.0** ⚠️ (source code is Apache-2.0) |
