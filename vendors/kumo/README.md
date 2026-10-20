@@ -31,7 +31,7 @@ License 1.1). See the repository for full terms and attribution requirements.
 
 ## Setup
 
-1. Attach to a **serverless GPU** with an AI runtime v5 or above. CPU is supported but significantly slower.
+1. Attach to a **serverless GPU** (AI runtime) with environment AI v6 or above. CPU is supported but significantly slower and provisioning all-purpose cluster with GPU might have longer wait times.
 2. Run the shared data prep first:
    [`shared/notebooks/00_data_preparation.ipynb`](../../shared/notebooks/00_data_preparation.ipynb).
 

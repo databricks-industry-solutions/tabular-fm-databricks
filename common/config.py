@@ -1,1 +1,1 @@
-CATALOG = 'tabular_fm'
+CATALOG = 'susagna_bu02_prod_catalog'

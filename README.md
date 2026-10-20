@@ -51,13 +51,13 @@ customers — substantial, costly operational overhead.
 
 ## Supported vendors
 
-| Vendor | Consumption | Compute on Databricks | Tasks | License | Status |
-|--------|-------------|-----------------------|-------|---------|--------|
-| **[TabPFN](vendors/tabpfn/)** (Prior Labs) | Hosted API & Self-hosted weights | Serverless **CPU** | Classification · Regression · Outlier · Forecasting | ⚠️ Weights **TABPFN-3 Non-Commercial** (Code Prior Labs License; API is commercial) | ✅ Available |
-| **[TabFM](vendors/tabfm/)** (Google) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported| Classification · Regression | ⚠️ Weights **TabFM Non-Commercial License v1.0** (code Apache-2.0) | ✅ Available |
-| **[TabICL](vendors/tabicl/)** (soda-inria) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported | Classification · Regression | **BSD 3-Clause** | ✅ Available |
-| **[Nori](vendors/nori/)** (Synthefy) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported | Regression | **Apache-2.0** (code and weights) | ✅ Available |
-| **[KumoTabular](vendors/kumo/)** (Nvidia) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported | Classification · Regression | **OpenMDW License 1.1** (commercial use permitted) | ✅ Available |
+| Vendor | Consumption | Compute on Databricks | Tasks | License |
+|--------|-------------|-----------------------|-------|---------|
+| **[TabPFN](vendors/tabpfn/)** (Prior Labs) | Hosted API & Self-hosted weights | Serverless **CPU** | Classification · Regression · Outlier · Forecasting | ⚠️ Weights **TABPFN-3 Non-Commercial** (Code Prior Labs License; API is commercial) |
+| **[TabFM](vendors/tabfm/)** (Google) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported| Classification · Regression | ⚠️ Weights **TabFM Non-Commercial License v1.0** (code Apache-2.0) |
+| **[TabICL](vendors/tabicl/)** (soda-inria) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported | Classification · Regression | **BSD 3-Clause** |
+| **[Nori](vendors/nori/)** (Synthefy) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported | Regression | **Apache-2.0** (code and weights) |
+| **[KumoTabular](vendors/kumo/)** (Nvidia) | Self-hosted weights (HF) | Serverless **GPU** (AI Runtime) Recommended; CPU supported | Classification · Regression | **OpenMDW License 1.1** (commercial use permitted) |
 
 Each vendor lives in `vendors/<vendor>/` with its own README (setup, auth, license,
 compute), `requirements.txt`, and task notebooks. Pick the folder for the vendor you
@@ -99,9 +99,9 @@ notebook reads them back.
 
 ## Prerequisites
 
-1. **Databricks Workspace** with Unity Catalog enabled
-2. For a given vendor: its credentials/compute (see the vendor's README — e.g. TabPFN needs an API token; TabFM/TabICL need a GPU cluster, while Nori recommends one)
-3. **Databricks CLI** (optional, for local development)
+1. Databricks Workspace with Unity Catalog enabled
+2. Each vendor has specific credentials/compute requirements. See each vendor's README. For instance TabPFN needs an API token while the the self-hosted models (TabFM, TabICL, Nori, KumoTabular) need no credentials and recommend a GPU, ideally Serverless GPU (AI Runtime)
+3. Databricks CLI (optional, for local development)
 
 ## Getting Started
 
