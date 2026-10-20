@@ -4,18 +4,27 @@ This folder contains two end-to-end examples of **fine-tuning KumoTabular Small*
 
 ## Datasets
 
-We use two OpenML datasets that resemble real-world enterprise workloads: large enough that GPU memory becomes a bottleneck, and wide enough to stress feature handling.
+We use two datasets from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/) that resemble real-world workloads: large enough that GPU memory becomes a bottleneck, and wide enough to stress feature handling. Both datasets are used **as-is without any transformation** to demonstrate AI Runtime fine-tuning capabilities on real data.
 
-| Task | Dataset | Samples | Features |
-| --- | --- | --- | --- |
-| Classification | BNP Paribas Cardif Claims Management (did=46625) | ~114 k | 133 |
-| Regression | Allstate Claims Severity (did=45046) | ~188 k | 125 |
+| Task | Dataset | Samples | Features | Target |
+| --- | --- | --- | --- | --- |
+| Classification | [Dota2 Games Results](https://archive.ics.uci.edu/dataset/367/dota2+games+results) (UCI id=367) | ~103 k | 115 | `win` |
+| Regression | [RT-IoT2022](https://archive.ics.uci.edu/dataset/942/rt-iot2022) (UCI id=942) | ~123 k | 83 | `flow_duration` |
+
+### License & Attribution
+
+Both datasets are provided under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license, which allows sharing and adaptation for any purpose, including commercial use, as long as appropriate credit is given.
+
+* **Dota2 Games Results** (2016) — Creator: Stephen Tridgell. DOI: [10.24432/C5W593](https://doi.org/10.24432/C5W593).
+* **RT-IoT2022** (2023) — Creators: B. S. Sharmila, Rohini Nagapadma. DOI: [10.24432/C5P338](https://doi.org/10.24432/C5P338).
+
+No modifications were made to either dataset. The licensed material is provided "as-is" and "as-available" — see [Section 5 of the CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode#s5) for the full disclaimer of warranties.
 
 ## Notebooks
 
 | Notebook | What it does | Compute |
 | --- | --- | --- |
-| `01_data_preparation` | Downloads datasets from OpenML, splits 80/20 into train/score, saves to Unity Catalog | Serverless CPU |
+| `01_data_preparation` | Downloads datasets from the UCI ML Repository, splits 80/20 into train/score, saves to Unity Catalog | Serverless CPU |
 | `02a_classification_finetune` | Fine-tunes KumoTabular Small on the classification dataset | **H100** (AI Runtime) |
 | `02b_regression_finetune` | Fine-tunes KumoTabular Small on the regression dataset | **H100** (AI Runtime) |
 | `03a_classification_inference` | Runs inference on the held-out test set — pretrained vs fine-tuned | A10 (AI Runtime) |
