@@ -24,7 +24,7 @@ vendors and must be surfaced to any customer evaluating it. See the full license
 | | |
 |---|---|
 | **Consumption** | Self-hosted weights (Hugging Face) — runs locally, single forward pass |
-| **Compute on Databricks** | **GPU cluster recommended** (CPU works but is slow). Inline in the notebook (v1). |
+| **Compute on Databricks** | **GPU recommended**, specially with Databricks AI Runtime for instant GPU access; CPU works but is slow |
 | **Auth** | None for open weights; standard Hugging Face access to download the model |
 | **Tasks covered** | **Classification and Regression only** — no outlier detection or forecasting |
 | **License** | Weights: **TabFM Non-Commercial License v1.0** ⚠️ (source code is Apache-2.0) |
@@ -36,7 +36,7 @@ vendors and must be surfaced to any customer evaluating it. See the full license
 
 ## Setup
 
-1. Provision a **GPU cluster** (or GPU serverless where available). Base ML runtime is fine.
+1. Attach to a **serverless GPU** (AI runtime) with environment AI v6 or above. CPU is supported but significantly slower and provisioning all-purpose cluster with GPU might have longer wait times.
 2. Run the shared data prep first:
    [`shared/notebooks/00_data_preparation.ipynb`](../../shared/notebooks/00_data_preparation.ipynb).
 3. Open the notebooks below. The first cell `%pip install tabfm[pytorch]` pulls the
