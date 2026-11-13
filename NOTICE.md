@@ -33,4 +33,9 @@ not redistributed in this repository.
   https://huggingface.co/Synthefy/Nori. The package carries its own `NOTICE` and
   third-party attribution files.
 
+- **psycopg** — PostgreSQL driver installed at runtime by the KumoTabular serving
+  notebook (`vendors/kumo/notebooks/03_inference_on_serving_endpoint.ipynb`) and by the
+  model it deploys, to read context rows from Lakebase. Released under the
+  **GNU Lesser General Public License v3.0** (https://github.com/psycopg/psycopg).
+
 Trademarks are the property of their respective owners.
