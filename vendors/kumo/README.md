@@ -34,6 +34,8 @@ License 1.1). See the repository for full terms and attribution requirements.
 1. Attach to a **serverless GPU** (AI runtime) with environment AI v6 or above. CPU is supported but significantly slower and provisioning all-purpose cluster with GPU might have longer wait times.
 2. Run the shared data prep first:
    [`shared/notebooks/00_data_preparation.ipynb`](../../shared/notebooks/00_data_preparation.ipynb).
+3. For `notebooks/03_inference_on_serving_endpoint.ipynb`, attach to **Serverless CPU** with environment v5
+   instead. Only the serving endpoint uses a GPU. The notebook also needs a Lakebase database instance.
 
 ## Notebooks
 
@@ -41,6 +43,7 @@ License 1.1). See the repository for full terms and attribution requirements.
 |----------|------|
 | `notebooks/01_classification.ipynb` | Binary & multi-class classification (supplier delay risk, material shortage, OTIF risk) |
 | `notebooks/02_regression.ipynb` | Regression (price elasticity, supplier lead time) |
+| `notebooks/03_inference_on_serving_endpoint.ipynb` | Serve all five tasks from one GPU serving endpoint, with the context of each task in Lakebase |
 
 
 The notebooks import shared helpers from
@@ -48,6 +51,20 @@ The notebooks import shared helpers from
 split, metrics, sklearn baselines, and writes to the shared
 `vendor_benchmark_results` Delta table consumed by the vendor-comparison
 notebook.
+
+## Serving with the context in Lakebase
+
+`notebooks/03_inference_on_serving_endpoint.ipynb` serves KumoTabular from one GPU serving endpoint for many
+tasks. It runs on Serverless CPU. Only the endpoint uses a GPU.
+
+- The context rows of each task are written to a Delta table with a version number and synced to Lakebase.
+- A request names its task. The endpoint fetches the task's context from Lakebase on first use, fits it once,
+  and keeps the fitted context on the GPU.
+- A new context version needs a write to the Delta table and a sync. No model is logged and the endpoint is
+  not updated.
+
+The notebook needs a Lakebase database instance, and the `databricks_superuser` role on it for the user who
+creates the endpoint. Its last section lists what to expect for the first request of a task and the limits.
 
 ## Path note
 

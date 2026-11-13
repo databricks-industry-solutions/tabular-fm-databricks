@@ -83,7 +83,7 @@ tabular-fm-databricks/
 │   ├── tabfm/     (README + requirements + notebooks 01–02)
 │   ├── tabicl/    (README + requirements + notebooks 01–02)
 │   ├── nori/      (README + requirements + regression notebook 02)
-│   └── kumo/      (README + requirements + notebooks 01–02)
+│   └── kumo/      (README + requirements + notebooks 01–03)
 ├── air_finetuning/                        # Fine-tuning notebooks using AI Runtime (Serverless GPU)
 ├── databricks.yml                        # Databricks Asset Bundle configuration
 ├── requirements.txt                      # Base/shared dependencies
@@ -127,7 +127,9 @@ exception: it calls a hosted API, so Serverless CPU is sufficient.
 Because every vendor writes to the same results table, you can run them on different
 clusters and still compare them afterward. For **TabICL** there is an example on how
 to serve the model through a GPU serving endpoint, which allows pipelines to run on
-CPU and offload inference to the dedicated GPU endpoint.
+CPU and offload inference to the dedicated GPU endpoint. For **KumoTabular** there is an
+example that serves several tasks from one GPU endpoint and keeps the context of each
+task in Lakebase, so a context can be refreshed without a new deployment.
 
 ## Adding a vendor
 
